@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Sun1090</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Frontend+Developer;Trading+%26+Charting+Tools;Vue+%C2%B7+React+%C2%B7+TypeScript" alt="typing" />
+  <img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Frontend+Developer;Trading+%26+Charting+Tools;Vue+%C2%B7+React+%C2%B7+TypeScript;Loon+%C2%B7+Surge+%C2%B7+QuantumultX" alt="typing" />
 </p>
 
 <p align="center">
@@ -29,6 +29,7 @@
 - 🛠️ 常用技术：**TypeScript、React、Vue3、Next.js、Vite、Tailwind CSS、Node.js**。
 - 📈 对 **K 线图表、实时行情、历史回放、数据可视化** 很感兴趣。
 - 🚀 也在研究可复用的 **独立开发启动模板** 和 **Cloudflare Worker API 网关**。
+- 🛡️ 熟悉 **Loon（主力）/ Surge / QuantumultX / Stash** 等代理工具生态，关注分流、复写与脚本的可维护性。
 - 📫 联系方式：[Telegram 频道](https://t.me/lololoTotice) · [Telegram 机器人](https://t.me/info_lolo_bot) · [邮箱](mailto:register_kirito@163.com)。
 
 ---
@@ -40,6 +41,7 @@
 | Trade Buty | 🚧 Active | 免费中立的交易教育平台，课程 + 真实行情练习 |
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
+| labor-dispatch-admin | 🧪 Hardening | Nuxt4 外包人事管理系统，安全加固与 E2E 验收 |
 | Frontend Archive | 🗂️ Maintained | 整理 Vue / React / 后台模板 / 可视化练习项目 |
 
 ---
@@ -48,69 +50,71 @@
 
 ### 1. [Trade Buty](https://github.com/Sun1090/trade-buty)
 
-> 面向中文用户的免费中立交易教育平台：**分级课程（学）× 真实行情图表与历史回放（练）**。
+> 免费中立的交易教育平台：**分级课程（学）× 真实行情图表与历史回放（练）**，不荐股、不导流、基础课程永久免费。
 
-- 🎓 **27 个篇章 / 173 篇课程**，提供系统化学习路线。
-- 📊 接入真实行情 K 线、盲盒式历史回放训练和猜涨跌考核。
-- ✅ 27 章随堂测验、81 题解析、阅读进度追踪。
-- 🌐 中英双语 UI，移动端适配到 320px。
-- ⚙️ 技术栈：**Next.js 16 App Router、React 19、TypeScript、Tailwind CSS v4、lightweight-charts v5、Supabase、Drizzle ORM**。
+- 🎯 把交易知识的"学—练—测"串成闭环：课程阅读 → 行情练习 → 错题复盘，一条学习路径。
+- 📚 课程知识库以 git submodule 引用 kline-buty，自建 content pipeline 渲染管线产出可索引内容，配目录 / 阅读时长 / 书签 / 术语表。
+- 📊 币安 REST + WebSocket 真实行情嵌入课程，盲盒式历史回放训练 + 猜涨跌考核。
+- ✅ 章节随堂测验 + **错题本** + AI 出题 + 连续学习 / 每日目标 / 活动热力图；进度本地存储 + Supabase 云端同步。
+- 🤖 内置 AI 陪学（ai-chat），错题驱动出题 + RAG 方向预留。
+- 🌐 中英双语，移动端适配到 320px。
+- ⚙️ **Next.js 16 · React 19 · TypeScript · Tailwind v4 · lightweight-charts v5**；构建时 JSON 索引 + 客户端检索；Vitest · Playwright 视觉审计 · CI。
 
 ### 2. [Kline Buty](https://github.com/Sun1090/kline-buty)
 
-> 实时 K 线图表应用，用于行情可视化与技术学习。
+> 免 API Key 的开源实时 K 线图表，币安公开数据驱动。
 
-- 🕯️ 支持蜡烛图 / 折线图 / 面积图，**14 档周期（1s 至 1M）**。
-- 📐 内置 **42 种画线工具**：趋势线、斐波那契、江恩、通道、R:R、文本标注等。
-- 📈 内置 **19 种技术指标**：MA、EMA、BOLL、MACD、KDJ、RSI、Ichimoku、ATR、OBV 等。
-- 🧾 实时盘口、深度图、多图同屏、市场回放、模拟仓位、价格提醒。
-- 🌍 支持 **中文 / English / 日本語 / 한국어 / Español**。
-- 📱 PWA、离线缓存、CSV 导出、区域截图、触屏手势与键盘快捷键。
-- 📚 配套知识库：**27 个篇章 / 201 篇文档**。
+- 🎯 自研交互与渲染适配层的图表内核：回放 / 盘口 / 画线 / 指标各自是纯逻辑引擎，与渲染解耦、可单测。
+- 🕯️ 蜡烛 / 折线 / 面积图，14 档周期（1s–1M）；画线涵盖趋势线 / 通道 / 斐波那契 / 江恩 / 楔形 / R:R / 文本标注等 + 图层管理。
+- 📈 指标按引擎实现（BOLL / Ichimoku / KDJ / MACD / RSI / SAR / SMA / VWAP 等），参数可调。
+- 🧾 orderbook 聚合 + 深度曲线 + 成交量分布独立计算；1/2/4 多图同屏。
+- ⏪ 历史回放是纯状态机（cursor 推进 / 跳转 / 到顶暂停，1x–50x）；模拟仓位盈亏、价格提醒、订单逻辑各自独立。
+- 🛠️ 自研交互层：视域裁剪、惯性滚动、捏合缩放、触屏手势；渲染引擎可替换。
+- ⚙️ **React 18 · TypeScript · Vite · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；Vitest + Playwright E2E。
 
 ### 3. [IndieStack](https://github.com/Sun1090/IndieStack)
 
-> 面向独立开发者的生产级产品启动模板。
+> 面向独立开发者的生产级 Next.js 启动模板，开箱即用、可直接部署。
 
-- 🏗️ **Next.js 15 App Router + React Server Components + Server Actions**。
-- 🔐 Supabase SSR Auth：Email / GitHub / Google 登录。
-- 🗄️ PostgreSQL + Row Level Security，支持多租户团队管理。
-- 💳 预留 Stripe 订阅计费结构。
-- 🎨 shadcn/ui、暗色 / 亮色主题、响应式布局、Toast、Skeleton、Error Boundary。
-- 🧪 **253+ Vitest 用例**、Playwright E2E 冒烟测试、GitHub Actions CI。
-- 🛡️ Sentry 监控、安全 Header、限流基础设施、阿里云 OSS 文件存储。
-- 📚 内置主项目文档和 VitePress 双语文档站。
+- 🎯 把 SaaS 从 0 到上线要重复做的事（认证 / 多租户 / 计费 / 监控 / 营销页）预先做好，省去重复搭脚手架。
+- 🔐 Supabase SSR Auth（Email / GitHub / Google）+ MFA；PostgreSQL RLS + 多租户团队与角色邀请。
+- 💳 Stripe-ready 订阅计费；Dashboard 预置 Overview / Analytics / Team / Billing / API Keys / Projects / Admin。
+- 📄 `(marketing)` 路由组：blog / pricing / contact / changelog / faq / about——落地页与法律页齐备。
+- 🛡️ Sentry 全链路监控（client + server + edge）、安全 Header、限流、阿里云 OSS。
+- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase**；Vitest + Playwright E2E + CI；内联 `/docs` + 独立 VitePress 文档站。
 
-### 4. [transfer-api](https://github.com/Sun1090/transfer-api)
+### 4. [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin)
 
-> Cloudflare Worker adapter，用于转发 OpenAI / Anthropic 兼容 API 路由。  
-> 该仓库为 fork，基于 [eooce/transfer-api](https://github.com/eooce/transfer-api)。
+> 外包公司人事管理系统，基于 Nuxt4 全栈。
 
-- ☁️ 部署到 Cloudflare Workers，可隐藏上游 API Key。
-- 🔐 支持独立的 `WORKER_API_KEY` 保护 Worker。
-- 🔌 提供 OpenAI 兼容接口：`/v1/models`、`/v1/chat/completions`、`/v1/responses` 等。
-- 🤖 提供 Anthropic / Claude Code 兼容入口。
-- ❤️ 包含 `/health` 健康检查，便于部署后快速验证。
+- 🎯 覆盖外包人事全流程：人员档案、部门岗位、考勤请假、合同、RBAC 权限。
+- 🔐 安全闭环：bcrypt + JWT 会话、强制改密、路由鉴权；服务端强制授权，前端权限仅做 UX 控制。
+- ⚙️ **Nuxt4 · Vue3 · TypeScript · Drizzle ORM · PostgreSQL · Redis · reka-ui · ECharts**；Vitest + Playwright E2E + CI + AGENTS.md 规范。
+
+### 5. [transfer-api](https://github.com/Sun1090/transfer-api)
+
+> Cloudflare Worker 适配器，把上游 API 转成 OpenAI / Anthropic 兼容接口。  
+> Fork 自 [eooce/transfer-api](https://github.com/eooce/transfer-api)。
+
+- 🎯 在 Cloudflare 边缘统一 AI 模型入口，隐藏上游 Key，一处接入多端复用。
+- 🔌 OpenAI 兼容（`/v1/chat/completions`、`/v1/responses`、`/v1/models`）+ Anthropic / Claude Code 兼容入口（`/v1/messages`、`/anthropic/*`）。
+- 🔐 `WORKER_API_KEY` 保护 Worker，上游 Key 只存 Cloudflare Secret；GitHub 推送即自动部署，`/health` 验证。
 
 ---
 
 ## 🧑‍💻 Frontend & Learning Projects
 
-> 说明：GitHub 统计卡中的 **Total Stars** 通常指“你的公开仓库收到的 Star 总数”，不是 `?tab=stars` 页面里你给别人仓库点的 Star；当前这项为 0，所以这里只展示项目与学习记录。
-
 ### Original & Learning Projects
 
-| 项目 | 类型 | 简介 | 技术关键词 |
-|---|---|---|---|
-| [vue-shop](https://github.com/Sun1090/vue-shop) | Original | Vue 商城后台管理系统 | Vue, JavaScript |
-| [react_ggzp](https://github.com/Sun1090/react_ggzp) | Original | 仿硅谷直聘练习项目 | React, JavaScript |
-| [vue-order](https://github.com/Sun1090/vue-order) | Original | 外卖订单管理练习项目 | Vue, Vuex |
-| [shop](https://github.com/Sun1090/shop) | Original | 硅谷外卖练习项目 | Vue |
-| [vue-map](https://github.com/Sun1090/vue-map) | Original | ECharts + JSONP 疫情状态图 | Vue, ECharts |
-| [drawio](https://github.com/Sun1090/drawio) | Original | 流程图学习 / 试验仓库 | Draw.io |
-| [vue-date](https://github.com/Sun1090/vue-date) | Original | Vue + 原生 JS 日历实现 | Vue, JavaScript |
-| [vue-notes](https://github.com/Sun1090/vue-notes) | Original | Vue 学习笔记 | Vue, HTML |
-| [sticky-note](https://github.com/Sun1090/sticky-note) | Original | Vue 简易便签应用 | Vue, Vuex |
+| 项目 | 类型 | 最后活跃 | 简介 | 技术关键词 |
+|---|---|---|---|---|
+| [IndieStack](https://github.com/Sun1090/IndieStack) | Original | 2026-08 | 独立开发者生产级 Next.js 启动模板 | Next.js, TypeScript, Supabase |
+| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | Original | 2026-08 | Nuxt4 外包人事管理系统 | Nuxt4, TypeScript, Drizzle, PostgreSQL |
+| [trade-buty](https://github.com/Sun1090/trade-buty) | Original | 2026-08 | 免费中立交易教育平台 | Next.js, React, TypeScript |
+| [kline-buty](https://github.com/Sun1090/kline-buty) | Original | 2026-08 | 自研交互内核的 K 线图表，画线/指标/回放/盘口各自独立引擎 | React, TypeScript, lightweight-charts |
+| [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus) | Original | 2026-08 | 跨标签页 Worker 集群数据总线，SharedWorker→Dedicated→主线程降级，支持 Centrifuge | TypeScript, Web Worker, SharedWorker |
+| [nuxt-admin-template](https://github.com/Sun1090/nuxt-admin-template) | Original | 2026-08 | Nuxt + Drizzle + shadcn-vue 可复用后台模板 | Vue, TypeScript, Nuxt |
+| [danmu_api](https://github.com/Sun1090/danmu_api) | Original | 2025-09 | 弹幕相关 API 服务 | JavaScript, Vercel |
 
 ### Selected Forks & Template References
 
@@ -122,23 +126,41 @@
 | [stepin-template-js](https://github.com/Sun1090/stepin-template-js) | Fork | 后台模板参考 | Vue, Ant Design Vue, Tailwind |
 | [Vue-mmPlayer](https://github.com/Sun1090/Vue-mmPlayer) | Fork | 音乐播放器实现参考 | Vue2 |
 | [aurora-public](https://github.com/Sun1090/aurora-public) | Fork | 全栈博客系统参考 | Vue, Spring Boot |
-| [ios_rule_script](https://github.com/Sun1090/ios_rule_script) | Fork | 分流规则与脚本学习 | JavaScript, Python |
-| [transfer-api](https://github.com/Sun1090/transfer-api) | Fork | API 转发适配器部署研究 | Cloudflare Workers |
+| [ios_rule_script](https://github.com/Sun1090/ios_rule_script) | Fork | 分流 / 复写 / 脚本规则学习 | JavaScript, Python |
+| [transfer-api](https://github.com/Sun1090/transfer-api) | Fork | Cloudflare Worker API 转发网关 | Cloudflare Workers |
 
 ---
 
 ## 🤝 Community Contributions
 
-- ✅ **3 个上游 PR 已合并**，另有 **1 个自有仓库 PR** 和 **1 个未合并 PR**。
+- ✅ **9 个 PR**：其中 **7 个已合并**（3 个上游开源 + 4 个自有仓库），另有 2 个未合并。
 - 🐞 在开源项目里提交过 **69 个 Issue**：其中 **50 个已关闭 / 19 个仍开放**。
 
-### Merged Upstream Pull Requests
+### Merged Pull Requests
+
+#### Upstream（开源贡献）
 
 | 仓库 | PR | 内容 |
 |---|---|---|
 | [antdv-pro](https://github.com/antdv-pro/antdv-pro) | [#151](https://github.com/antdv-pro/antdv-pro/pull/151) | 修复路由切换导致 page-container 头部面包屑等区域被意外隐藏 |
 | [antdv-pro](https://github.com/antdv-pro/antdv-pro) | [#84](https://github.com/antdv-pro/antdv-pro/pull/84) | 调整侧边栏可伸缩按钮位置 |
 | [stepin-template-js](https://github.com/stepui/stepin-template-js) | [#1](https://github.com/stepui/stepin-template-js/pull/1) | 更新文档说明 |
+
+#### Own Repos（自有仓库工程化提交）
+
+| 仓库 | PR | 内容 |
+|---|---|---|
+| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#4](https://github.com/Sun1090/labor-dispatch-admin/pull/4) | 通知、报表、打卡、全局搜索与会话交互优化 |
+| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#3](https://github.com/Sun1090/labor-dispatch-admin/pull/3) | RB 验收 E2E 自动化、强制改密流程与缓存加固 |
+| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#2](https://github.com/Sun1090/labor-dispatch-admin/pull/2) | 修正路由鉴权与根导航跳转 |
+| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#1](https://github.com/Sun1090/labor-dispatch-admin/pull/1) | 安全加固、CI 流水线、AGENTS.md 与部署准备 |
+
+#### Unmerged（未合并）
+
+| 仓库 | PR | 内容 |
+|---|---|---|
+| [kline-buty](https://github.com/Sun1090/kline-buty) | [#1](https://github.com/Sun1090/kline-buty/pull/1) | Capacitor 壳工程落地、app 分支闭环 |
+| [aurora](https://github.com/linhaojun857/aurora) | [#11](https://github.com/linhaojun857/aurora/pull/11) | 补充 aurora-blog 下缺少的依赖 |
 
 ### Issue Reporting Highlights
 
@@ -201,13 +223,24 @@
 
 ---
 
-## 📌 Project Principles
+## 🛡️ Proxy & Network Tools
 
-1. **可运行优先**：项目要有清晰的启动命令、部署路径和边界说明。
-2. **内容结构化**：课程、文档、配置尽量拆分成可索引的数据或 Markdown。
-3. **可视化驱动**：复杂行情和数据尽量用图表、回放和交互降低理解成本。
-4. **工程化完整**：类型检查、Lint、测试、CI、错误监控能加就加。
-5. **合规与免责**：行情 / 交易相关项目只做学习和研究，不构成投资建议。
+### iOS 代理客户端（主力与常用）
+
+| 工具 | 定位 | 说明 |
+|---|---|---|
+| <a href="https://nsloon.app" target="_blank">**Loon**</a> | ⭐ 主力 | 脚本、复写、分流、插件式订阅，日常自用主力 |
+| <a href="https://nssurge.com" target="_blank">Surge</a> | 常用 | 老牌抓包与代理工具，规则生态完善 |
+| <a href="https://apps.apple.com/app/quantumult-x/id1442367847" target="_blank">Quantumult X</a> | 常用 | 圈 X，分流 / 复写 / Task 脚本生态活跃 |
+| <a href="https://stash.wiki" target="_blank">Stash</a> | 常用 | 兼容 Clash 配置的 iOS / macOS 客户端 |
+
+### 桌面 / 安卓常用客户端
+
+| 项目 | 平台 | 说明 |
+|---|---|---|
+| <a href="https://github.com/clash-verge-rev/clash-verge-rev" target="_blank">clash-verge-rev</a> | Win / macOS / Linux | 基于 Tauri 的现代 GUI 客户端，体验打磨细致 |
+| <a href="https://github.com/mihomo-party-org/clash-party" target="_blank">clash-party</a> | Win / macOS / Linux | 又一个 mihomo GUI，轻量好用 |
+| <a href="https://github.com/MatsuriDayo/NekoBoxForAndroid" target="_blank">NekoBoxForAndroid</a> | Android | sing-box / 通用代理工具链，安卓端主力之一 |
 
 ---
 
@@ -227,16 +260,6 @@
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Sun1090&theme=tokyonight&utcOffset=8" alt="Productive time" height="165em">
   <img src="https://streak-stats.demolab.com?user=Sun1090&locale=en&hide_border=true&theme=tokyonight" alt="GitHub streak" height="165em">
 </div>
-
----
-
-## 🗺️ Next Steps
-
-- [ ] 继续完善 Trade Buty 的课程体验和练习闭环。
-- [ ] 扩展 Kline Buty 的指标、画线工具和移动端体验。
-- [ ] 把 IndieStack 的认证、多租户、计费和文档链路打磨成可复用模板。
-- [ ] 整理一套个人前端项目脚手架和部署检查清单。
-- [ ] 补充博客 / 项目文档站入口。
 
 ---
 
