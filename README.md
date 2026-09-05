@@ -28,7 +28,7 @@
 - 🧠 习惯把项目拆成可维护的模块：内容、图表、数据层、测试、部署和文档。
 - 🛠️ 常用技术：**TypeScript、React、Vue3、Next.js、Vite、Tailwind CSS、Node.js**。
 - 📈 对 **K 线图表、实时行情、历史回放、数据可视化** 很感兴趣。
-- 🚀 也在研究可复用的 **独立开发启动模板** 和 **Cloudflare Worker API 网关**。
+- 🚀 也在研究可复用的 **独立开发启动模板**、**AI agent 规范模板（[agents-template](https://github.com/Sun1090/agents-template)）** 和 **Cloudflare Worker API 网关**。
 - 🛡️ 熟悉 **Loon（主力）/ Surge / QuantumultX / Stash** 等代理工具生态，关注分流、复写与脚本的可维护性。
 - 📫 联系方式：[Telegram 频道](https://t.me/lololoTotice) · [Telegram 机器人](https://t.me/info_lolo_bot) · [邮箱](mailto:register_kirito@163.com)。
 
@@ -40,8 +40,10 @@
 |---|---|---|
 | Trade Buty | 🚧 Active | 免费中立的交易教育平台，课程 + 真实行情练习 |
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
+| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.20.77），SharedWorker / Dedicated / 主线程降级 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
-| labor-dispatch-admin | 🧪 Hardening | Nuxt4 外包人事管理系统，安全加固与 E2E 验收 |
+| agents-template | 🧪 Experimenting | AI agent 工程化规范模板（frontend / backend / fullstack 三套） |
+| labor-dispatch-admin | 🛣 Roadmap v3 | Nuxt4 外包人事管理系统，105 dev tasks 路线图推进 + 路由守卫重构 |
 | Frontend Archive | 🗂️ Maintained | 整理 Vue / React / 后台模板 / 可视化练习项目 |
 
 ---
@@ -58,7 +60,7 @@
 - ✅ 章节随堂测验 + **错题本** + AI 出题 + 连续学习 / 每日目标 / 活动热力图；进度本地存储 + Supabase 云端同步。
 - 🤖 内置 AI 陪学（ai-chat），错题驱动出题 + RAG 方向预留。
 - 🌐 中英双语，移动端适配到 320px。
-- ⚙️ **Next.js 16 · React 19 · TypeScript · Tailwind v4 · lightweight-charts v5**；构建时 JSON 索引 + 客户端检索；Vitest · Playwright 视觉审计 · CI。
+- ⚙️ **Next.js 16 · React 19 · TypeScript · Tailwind v4 · lightweight-charts v5**；构建时 JSON 索引 + 客户端检索；Vitest · Playwright 视觉审计 · CI；**R7 性能预算门禁**（per-route JS budgets + AI chunk isolation + fps degrade）。
 
 ### 2. [Kline Buty](https://github.com/Sun1090/kline-buty)
 
@@ -72,33 +74,35 @@
 - 🛠️ 自研交互层：视域裁剪、惯性滚动、捏合缩放、触屏手势；渲染引擎可替换。
 - ⚙️ **React 18 · TypeScript · Vite · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；Vitest + Playwright E2E。
 
-### 3. [IndieStack](https://github.com/Sun1090/IndieStack)
+### 3. [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus)
 
-> 面向独立开发者的生产级 Next.js 启动模板，开箱即用、可直接部署。
+> 框架无关的浏览器跨标签页数据总线，原生 Web Worker / SharedWorker / Centrifuge / 零依赖 WebSocket 全支持。
 
-- 🎯 把 SaaS 从 0 到上线要重复做的事（认证 / 多租户 / 计费 / 监控 / 营销页）预先做好，省去重复搭脚手架。
-- 🔐 Supabase SSR Auth（Email / GitHub / Google）+ MFA；PostgreSQL RLS + 多租户团队与角色邀请。
-- 💳 Stripe-ready 订阅计费；Dashboard 预置 Overview / Analytics / Team / Billing / API Keys / Projects / Admin。
+- 🎯 让应用只关心订阅 Topic 与处理数据，跨标签页的 Worker 集群、Topic 所有者复用、负载均衡、故障迁移、页面生命周期全部内置。
+- 🔌 `workerMode` 支持 `dedicated` / `shared` / `auto`：`auto` 按 SharedWorker → Dedicated Worker → 主线程 WebSocket 自动降级，反之亦可显式降级。
+- 🧩 同源标签页通过 BroadcastChannel 组成逻辑 Worker 集群；sticky Topic 所有者 + 订阅复用 + 新 Topic 负载分配 + 失败迁移，新进 Topic 自动落到负载最低的 Worker。
+- 📡 可选 Centrifuge 传输（`cross-tab-worker-databus/centrifuge`）+ 零依赖原生 WebSocket 传输（`createWebSocketDataBus`）；传输支持 `publishBatch` 批量帧，单条 `publish` 自动兜底。
+- 🪝 React/Vue 3 适配器新增 `useCrossTabHealth` 健康轮询；Transferable ArrayBuffer、消息回放留存、通配符订阅、可观测追踪快照。无 BroadcastChannel 时可选 `storage-event` 信道降级（opt-in）。
+- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.20.77**（含热路径性能门禁 + Worker backend 能力嗅探）。
+
+### 4. [IndieStack](https://github.com/Sun1090/IndieStack)
+
+> 面向独立开发者的生产级 Next.js 启动模板（v0.5.0），开箱即用、可直接部署。
+
+- 🎯 把 SaaS 从 0 到上线要重复做的事（认证 / 多租户 / 计费 / 监控 / 营销页 / 对象存储 / APM）预先做好，省去重复搭脚手架。
+- 🔐 Supabase SSR Auth（Email / GitHub / Google）+ **TOTP/MFA** + **WebAuthn/Passkey**（feature flag 门控）+ 会话设备列表与单设备吊销；PostgreSQL RLS + 多租户团队与角色邀请。
+- 💳 Stripe-ready 订阅计费；Dashboard 预置 Overview / Analytics / Team / Billing / API Keys / Projects / Admin；**阿里云 OSS / Supabase Storage 双驱动对象存储**。
 - 📄 `(marketing)` 路由组：blog / pricing / contact / changelog / faq / about——落地页与法律页齐备。
-- 🛡️ Sentry 全链路监控（client + server + edge）、安全 Header、限流、阿里云 OSS。
-- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase**；Vitest + Playwright E2E + CI；内联 `/docs` + 独立 VitePress 文档站。
+- 🛡️ **Sentry + Appark APM**（无厂商 SDK、旁路关闭）；安全 Header、限流、邮件通道完善（类型折叠 / 失败重试 / digest 时区错峰）。
+- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单测 668 个 · branches 覆盖率 85%**；内联 `/docs` + 独立 VitePress 文档站。
 
-### 4. [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin)
+### 5. [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin)
 
 > 外包公司人事管理系统，基于 Nuxt4 全栈。
 
 - 🎯 覆盖外包人事全流程：人员档案、部门岗位、考勤请假、合同、RBAC 权限。
 - 🔐 安全闭环：bcrypt + JWT 会话、强制改密、路由鉴权；服务端强制授权，前端权限仅做 UX 控制。
 - ⚙️ **Nuxt4 · Vue3 · TypeScript · Drizzle ORM · PostgreSQL · Redis · reka-ui · ECharts**；Vitest + Playwright E2E + CI + AGENTS.md 规范。
-
-### 5. [transfer-api](https://github.com/Sun1090/transfer-api)
-
-> Cloudflare Worker 适配器，把上游 API 转成 OpenAI / Anthropic 兼容接口。  
-> Fork 自 [eooce/transfer-api](https://github.com/eooce/transfer-api)。
-
-- 🎯 在 Cloudflare 边缘统一 AI 模型入口，隐藏上游 Key，一处接入多端复用。
-- 🔌 OpenAI 兼容（`/v1/chat/completions`、`/v1/responses`、`/v1/models`）+ Anthropic / Claude Code 兼容入口（`/v1/messages`、`/anthropic/*`）。
-- 🔐 `WORKER_API_KEY` 保护 Worker，上游 Key 只存 Cloudflare Secret；GitHub 推送即自动部署，`/health` 验证。
 
 ---
 
