@@ -40,10 +40,10 @@
 |---|---|---|
 | Trade Buty | 🚧 Active | 免费中立的交易教育平台，课程 + 真实行情练习 |
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
-| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.20.77），SharedWorker / Dedicated / 主线程降级 |
+| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.20.71），SharedWorker / Dedicated / 主线程降级 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
 | agents-template | 🧪 Experimenting | AI agent 工程化规范模板（frontend / backend / fullstack 三套） |
-| labor-dispatch-admin | 🛣 Roadmap v3 | Nuxt4 外包人事管理系统，105 dev tasks 路线图推进 + 路由守卫重构 |
+| labor-dispatch-admin | 🛣 Roadmap v3 | Nuxt4 外包人事管理系统 v1.0.2，审批链引擎 + 105 dev tasks 路线图推进 |
 | Frontend Archive | 🗂️ Maintained | 整理 Vue / React / 后台模板 / 可视化练习项目 |
 
 ---
@@ -57,7 +57,8 @@
 - 🎯 把交易知识的"学—练—测"串成闭环：课程阅读 → 行情练习 → 错题复盘，一条学习路径。
 - 📚 课程知识库以 git submodule 引用 kline-buty，自建 content pipeline 渲染管线产出可索引内容，配目录 / 阅读时长 / 书签 / 术语表。
 - 📊 币安 REST + WebSocket 真实行情嵌入课程，盲盒式历史回放训练 + 猜涨跌考核。
-- ✅ 章节随堂测验 + **错题本** + AI 出题 + 连续学习 / 每日目标 / 活动热力图；进度本地存储 + Supabase 云端同步。
+- ✅ 章节随堂测验 + **错题本** + AI 出题（题源可溯源 / 难度可配）+ 学习趋势统计 + 连续学习 / 每日目标 / 活动热力图；进度本地存储 + Supabase 云端同步 + 离线写入队列。
+- 🔐 账号与合规闭环：本地数据导出、账号删除；R10 内容运营门禁（双语标题/术语一致性、SEO hreflang、搜索同义与纠错改写）。
 - 🤖 内置 AI 陪学（ai-chat），错题驱动出题 + RAG 方向预留。
 - 🌐 中英双语，移动端适配到 320px。
 - ⚙️ **Next.js 16 · React 19 · TypeScript · Tailwind v4 · lightweight-charts v5**；构建时 JSON 索引 + 客户端检索；Vitest · Playwright 视觉审计 · CI；**R7 性能预算门禁**（per-route JS budgets + AI chunk isolation + fps degrade）。
@@ -67,12 +68,13 @@
 > 免 API Key 的开源实时 K 线图表，币安公开数据驱动。
 
 - 🎯 自研交互与渲染适配层的图表内核：回放 / 盘口 / 画线 / 指标各自是纯逻辑引擎，与渲染解耦、可单测。
-- 🕯️ 蜡烛 / 折线 / 面积图，14 档周期（1s–1M）；画线涵盖趋势线 / 通道 / 斐波那契 / 江恩 / 楔形 / R:R / 文本标注等 + 图层管理。
-- 📈 指标按引擎实现（BOLL / Ichimoku / KDJ / MACD / RSI / SAR / SMA / VWAP 等），参数可调。
+- 🕯️ 蜡烛 / 折线 / 面积图，14 档周期（1s–1M）；**49 种画线工具**（趋势线 / 通道 / 斐波那契 / 江恩 / 楔形 / R:R / 文本标注等）+ 图层管理 + 模板保存/应用与社区导入导出。
+- 📈 **26 个指标引擎**（BOLL / Ichimoku / MACD / KDJ / RSI / SAR / Supertrend / VWAP 等），参数可调 + 趋势/波动率智能推荐。
 - 🧾 orderbook 聚合 + 深度曲线 + 成交量分布独立计算；1/2/4 多图同屏。
-- ⏪ 历史回放是纯状态机（cursor 推进 / 跳转 / 到顶暂停，1x–50x）；模拟仓位盈亏、价格提醒、订单逻辑各自独立。
+- ⏪ 历史回放是纯状态机（cursor 推进 / 跳转 / 到顶暂停，1x–50x）；模拟仓位盈亏、价格提醒（含 ATR 波动率自适应）、订单逻辑各自独立。
+- 🌐 五语 i18n（中 / 英 / 日 / 韩 / 西）+ PWA 可安装离线；深链分享、图表快照画廊、应用内文档索引。
 - 🛠️ 自研交互层：视域裁剪、惯性滚动、捏合缩放、触屏手势；渲染引擎可替换。
-- ⚙️ **React 18 · TypeScript · Vite · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；Vitest + Playwright E2E。
+- ⚙️ **React 19 · TypeScript 6 · Vite 8 · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；1522 单测 + Playwright 三浏览器 E2E + CodeQL / dependabot 安全门禁。
 
 ### 3. [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus)
 
@@ -83,7 +85,7 @@
 - 🧩 同源标签页通过 BroadcastChannel 组成逻辑 Worker 集群；sticky Topic 所有者 + 订阅复用 + 新 Topic 负载分配 + 失败迁移，新进 Topic 自动落到负载最低的 Worker。
 - 📡 可选 Centrifuge 传输（`cross-tab-worker-databus/centrifuge`）+ 零依赖原生 WebSocket 传输（`createWebSocketDataBus`）；传输支持 `publishBatch` 批量帧，单条 `publish` 自动兜底。
 - 🪝 React/Vue 3 适配器新增 `useCrossTabHealth` 健康轮询；Transferable ArrayBuffer、消息回放留存、通配符订阅、可观测追踪快照。无 BroadcastChannel 时可选 `storage-event` 信道降级（opt-in）。
-- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.20.77**（含热路径性能门禁 + Worker backend 能力嗅探）。
+- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.20.71**（含热路径性能门禁 + Worker backend 能力嗅探）。
 
 ### 4. [IndieStack](https://github.com/Sun1090/IndieStack)
 
@@ -94,13 +96,14 @@
 - 💳 Stripe-ready 订阅计费；Dashboard 预置 Overview / Analytics / Team / Billing / API Keys / Projects / Admin；**阿里云 OSS / Supabase Storage 双驱动对象存储**。
 - 📄 `(marketing)` 路由组：blog / pricing / contact / changelog / faq / about——落地页与法律页齐备。
 - 🛡️ **Sentry + Appark APM**（无厂商 SDK、旁路关闭）；安全 Header、限流、邮件通道完善（类型折叠 / 失败重试 / digest 时区错峰）。
-- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单测 668 个 · branches 覆盖率 85%**；内联 `/docs` + 独立 VitePress 文档站。
+- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单测 763 个 · branches 覆盖率 ≥90%**；内联 `/docs` + 独立 VitePress 文档站。
 
-### 5. [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin)
+### 5. labor-dispatch-admin 🔒 <sub>私有项目 · Client Work</sub>
 
 > 外包公司人事管理系统，基于 Nuxt4 全栈。
 
-- 🎯 覆盖外包人事全流程：人员档案、部门岗位、考勤请假、合同、RBAC 权限。
+- 🎯 覆盖外包人事全流程：人员档案、部门岗位、考勤请假、合同、**审批链引擎**、RBAC 权限。
+- 🔁 审批工作流：链式审批定义 CRUD、跨链决策、分级 SLA 与超时队列、驳回后重提开启新链。
 - 🔐 安全闭环：bcrypt + JWT 会话、强制改密、路由鉴权；服务端强制授权，前端权限仅做 UX 控制。
 - ⚙️ **Nuxt4 · Vue3 · TypeScript · Drizzle ORM · PostgreSQL · Redis · reka-ui · ECharts**；Vitest + Playwright E2E + CI + AGENTS.md 规范。
 
@@ -112,12 +115,13 @@
 
 | 项目 | 类型 | 最后活跃 | 简介 | 技术关键词 |
 |---|---|---|---|---|
-| [IndieStack](https://github.com/Sun1090/IndieStack) | Original | 2026-08 | 独立开发者生产级 Next.js 启动模板 | Next.js, TypeScript, Supabase |
-| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | Original | 2026-08 | Nuxt4 外包人事管理系统 | Nuxt4, TypeScript, Drizzle, PostgreSQL |
-| [trade-buty](https://github.com/Sun1090/trade-buty) | Original | 2026-08 | 免费中立交易教育平台 | Next.js, React, TypeScript |
-| [kline-buty](https://github.com/Sun1090/kline-buty) | Original | 2026-08 | 自研交互内核的 K 线图表，画线/指标/回放/盘口各自独立引擎 | React, TypeScript, lightweight-charts |
-| [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus) | Original | 2026-08 | 跨标签页 Worker 集群数据总线，SharedWorker→Dedicated→主线程降级，支持 Centrifuge | TypeScript, Web Worker, SharedWorker |
+| [IndieStack](https://github.com/Sun1090/IndieStack) | Original | 2026-09 | 独立开发者生产级 Next.js 启动模板 | Next.js, TypeScript, Supabase |
+| labor-dispatch-admin 🔒 | Original（私有） | 2026-09 | Nuxt4 外包人事管理系统 | Nuxt4, TypeScript, Drizzle, PostgreSQL |
+| [trade-buty](https://github.com/Sun1090/trade-buty) | Original | 2026-09 | 免费中立交易教育平台 | Next.js, React, TypeScript |
+| [kline-buty](https://github.com/Sun1090/kline-buty) | Original | 2026-09 | 自研交互内核的 K 线图表，画线/指标/回放/盘口各自独立引擎 | React, TypeScript, lightweight-charts |
+| [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus) | Original | 2026-09 | 跨标签页 Worker 集群数据总线，SharedWorker→Dedicated→主线程降级，支持 Centrifuge | TypeScript, Web Worker, SharedWorker |
 | [nuxt-admin-template](https://github.com/Sun1090/nuxt-admin-template) | Original | 2026-08 | Nuxt + Drizzle + shadcn-vue 可复用后台模板 | Vue, TypeScript, Nuxt |
+| [agents-template](https://github.com/Sun1090/agents-template) | Original | 2026-08 | AI agent 工程化规范模板（frontend / backend / fullstack） | Markdown, AI Agents |
 | [danmu_api](https://github.com/Sun1090/danmu_api) | Original | 2025-09 | 弹幕相关 API 服务 | JavaScript, Vercel |
 
 ### Selected Forks & Template References
@@ -137,7 +141,7 @@
 
 ## 🤝 Community Contributions
 
-- ✅ **9 个 PR**：其中 **7 个已合并**（3 个上游开源 + 4 个自有仓库），另有 2 个未合并。
+- ✅ **9 个 PR**：其中 **7 个已合并**（3 个上游开源 + 4 个自有仓库；其中 4 个 PR 位于私有仓库 labor-dispatch-admin），另有 2 个未合并。
 - 🐞 在开源项目里提交过 **69 个 Issue**：其中 **50 个已关闭 / 19 个仍开放**。
 
 ### Merged Pull Requests
@@ -154,10 +158,10 @@
 
 | 仓库 | PR | 内容 |
 |---|---|---|
-| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#4](https://github.com/Sun1090/labor-dispatch-admin/pull/4) | 通知、报表、打卡、全局搜索与会话交互优化 |
-| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#3](https://github.com/Sun1090/labor-dispatch-admin/pull/3) | RB 验收 E2E 自动化、强制改密流程与缓存加固 |
-| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#2](https://github.com/Sun1090/labor-dispatch-admin/pull/2) | 修正路由鉴权与根导航跳转 |
-| [labor-dispatch-admin](https://github.com/Sun1090/labor-dispatch-admin) | [#1](https://github.com/Sun1090/labor-dispatch-admin/pull/1) | 安全加固、CI 流水线、AGENTS.md 与部署准备 |
+| labor-dispatch-admin 🔒 | #4 | 通知、报表、打卡、全局搜索与会话交互优化 |
+| labor-dispatch-admin 🔒 | #3 | RB 验收 E2E 自动化、强制改密流程与缓存加固 |
+| labor-dispatch-admin 🔒 | #2 | 修正路由鉴权与根导航跳转 |
+| labor-dispatch-admin 🔒 | #1 | 安全加固、CI 流水线、AGENTS.md 与部署准备 |
 
 #### Unmerged（未合并）
 
@@ -185,6 +189,7 @@
 | [Kline Buty](https://kline-buty.vercel.app) | Web App | Open App | 实时 K 线图表与历史回放 |
 | [IndieStack](https://indie-stack-theta.vercel.app) | Template Demo | Open Demo | 独立开发启动模板演示 |
 | [IndieStack Docs](https://indie-stack-docs-site.vercel.app) | Docs | Read Docs | IndieStack 双语文档站 |
+| [labor-dispatch-admin](https://labor-dispatch-admin-pink.vercel.app) | Admin App | Open App | Nuxt4 外包人事管理系统演示 |
 | [Kline Knowledge](https://kline-buty.vercel.app/knowledge/) | Knowledge Base | Read Docs | Kline Buty 配套知识库 |
 | [danmu_api](https://danmuapi-amber.vercel.app) | API Service | Check Service | 弹幕相关 API 服务 |
 
