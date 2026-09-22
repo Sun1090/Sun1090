@@ -74,7 +74,7 @@
 - ⏪ 历史回放是纯状态机（cursor 推进 / 跳转 / 到顶暂停，1x–50x）；模拟仓位盈亏、价格提醒（含 ATR 波动率自适应）、订单逻辑各自独立。
 - 🌐 五语 i18n（中 / 英 / 日 / 韩 / 西）+ PWA 可安装离线；深链分享、图表快照画廊、应用内文档索引。
 - 🛠️ 自研交互层：视域裁剪、惯性滚动、捏合缩放、触屏手势；渲染引擎可替换。
-- ⚙️ **React 19 · TypeScript 6 · Vite 8 · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；1522 单测 + Playwright 三浏览器 E2E + CodeQL / dependabot 安全门禁。
+- ⚙️ **React 19 · TypeScript 6 · Vite 8 · lightweight-charts v5**；K 线 store 幂等合并、WS 心跳重连 + 断线回填；1500+ 单测 + Playwright 三浏览器 E2E + CodeQL / dependabot 安全门禁。
 
 ### 3. [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus)
 
