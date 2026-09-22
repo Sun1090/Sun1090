@@ -40,10 +40,10 @@
 |---|---|---|
 | Trade Buty | 🚧 Active | 免费中立的交易教育平台，课程 + 真实行情练习 |
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
-| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.20.71），SharedWorker / Dedicated / 主线程降级 |
+| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.21.4），SharedWorker / Dedicated / 主线程降级 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
 | agents-template | 🧪 Experimenting | AI agent 工程化规范模板（frontend / backend / fullstack 三套） |
-| labor-dispatch-admin | 🛣 Roadmap v3 | Nuxt4 外包人事管理系统 v1.0.2，审批链引擎 + 105 dev tasks 路线图推进 |
+| labor-dispatch-admin | 🛣 Roadmap v4 | Nuxt4 外包人事管理系统 v1.1.1，审批链引擎 + v4 hardening 路线图推进 |
 | Frontend Archive | 🗂️ Maintained | 整理 Vue / React / 后台模板 / 可视化练习项目 |
 
 ---
@@ -85,18 +85,18 @@
 - 🧩 同源标签页通过 BroadcastChannel 组成逻辑 Worker 集群；sticky Topic 所有者 + 订阅复用 + 新 Topic 负载分配 + 失败迁移，新进 Topic 自动落到负载最低的 Worker。
 - 📡 可选 Centrifuge 传输（`cross-tab-worker-databus/centrifuge`）+ 零依赖原生 WebSocket 传输（`createWebSocketDataBus`）；传输支持 `publishBatch` 批量帧，单条 `publish` 自动兜底。
 - 🪝 React/Vue 3 适配器新增 `useCrossTabHealth` 健康轮询；Transferable ArrayBuffer、消息回放留存、通配符订阅、可观测追踪快照。无 BroadcastChannel 时可选 `storage-event` 信道降级（opt-in）。
-- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.20.71**（含热路径性能门禁 + Worker backend 能力嗅探）。
+- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.21.4**（含热路径性能门禁 + Worker backend 能力嗅探）。
 
 ### 4. [IndieStack](https://github.com/Sun1090/IndieStack)
 
-> 面向独立开发者的生产级 Next.js 启动模板（v0.5.0），开箱即用、可直接部署。
+> 面向独立开发者的生产级 Next.js 启动模板（v0.11.0），开箱即用、可直接部署。
 
 - 🎯 把 SaaS 从 0 到上线要重复做的事（认证 / 多租户 / 计费 / 监控 / 营销页 / 对象存储 / APM）预先做好，省去重复搭脚手架。
 - 🔐 Supabase SSR Auth（Email / GitHub / Google）+ **TOTP/MFA** + **WebAuthn/Passkey**（feature flag 门控）+ 会话设备列表与单设备吊销；PostgreSQL RLS + 多租户团队与角色邀请。
 - 💳 Stripe-ready 订阅计费；Dashboard 预置 Overview / Analytics / Team / Billing / API Keys / Projects / Admin；**阿里云 OSS / Supabase Storage 双驱动对象存储**。
 - 📄 `(marketing)` 路由组：blog / pricing / contact / changelog / faq / about——落地页与法律页齐备。
 - 🛡️ **Sentry + Appark APM**（无厂商 SDK、旁路关闭）；安全 Header、限流、邮件通道完善（类型折叠 / 失败重试 / digest 时区错峰）。
-- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单测 763 个 · branches 覆盖率 ≥90%**；内联 `/docs` + 独立 VitePress 文档站。
+- ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单元/组件测试门禁 + 覆盖率阈值化**；内联 `/docs` + 独立 VitePress 文档站。
 
 ### 5. labor-dispatch-admin 🔒 <sub>私有项目 · Client Work</sub>
 
@@ -120,18 +120,19 @@
 | [trade-buty](https://github.com/Sun1090/trade-buty) | Original | 2026-09 | 免费中立交易教育平台 | Next.js, React, TypeScript |
 | [kline-buty](https://github.com/Sun1090/kline-buty) | Original | 2026-09 | 自研交互内核的 K 线图表，画线/指标/回放/盘口各自独立引擎 | React, TypeScript, lightweight-charts |
 | [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus) | Original | 2026-09 | 跨标签页 Worker 集群数据总线，SharedWorker→Dedicated→主线程降级，支持 Centrifuge | TypeScript, Web Worker, SharedWorker |
-| [nuxt-admin-template](https://github.com/Sun1090/nuxt-admin-template) | Original | 2026-08 | Nuxt + Drizzle + shadcn-vue 可复用后台模板 | Vue, TypeScript, Nuxt |
-| [agents-template](https://github.com/Sun1090/agents-template) | Original | 2026-08 | AI agent 工程化规范模板（frontend / backend / fullstack） | Markdown, AI Agents |
+| [nuxt-admin-template](https://github.com/Sun1090/nuxt-admin-template) | Original | 2026-09 | Nuxt + Drizzle + shadcn-vue 可复用后台模板 | Vue, TypeScript, Nuxt |
+| [agents-template](https://github.com/Sun1090/agents-template) | Original | 2026-09 | AI agent 工程化规范模板（frontend / backend / fullstack） | Markdown, AI Agents |
 | [danmu_api](https://github.com/Sun1090/danmu_api) | Original | 2025-09 | 弹幕相关 API 服务 | JavaScript, Vercel |
 
 ### Selected Forks & Template References
 
 | 项目 | 类型 | 用途 | 上游方向 |
 |---|---|---|---|
+| [CPA-Manager-Plus](https://github.com/seakee/CPA-Manager-Plus) | Fork | AI 网关管理面板与请求/用量/成本/配额观测参考 | Go, Node.js |
 | [soybean-admin-element-plus](https://github.com/Sun1090/soybean-admin-element-plus) | Fork | 后台模板参考 | Vue3, Element Plus |
 | [vue-vben-admin](https://github.com/Sun1090/vue-vben-admin) | Fork | 后台架构参考 | Vue3, Vite, TypeScript |
-| [antdv-pro](https://github.com/Sun1090/antdv-pro) | Fork | Ant Design Vue 模板参考 | Vue, Ant Design Vue |
-| [stepin-template-js](https://github.com/Sun1090/stepin-template-js) | Fork | 后台模板参考 | Vue, Ant Design Vue, Tailwind |
+| [antdv-pro](https://github.com/antdv-pro/antdv-pro) | Fork | Ant Design Vue 模板参考 | Vue, Ant Design Vue |
+| [stepin-template-js](https://github.com/stepui/stepin-template-js) | Fork | 后台模板参考 | Vue, Ant Design Vue, Tailwind |
 | [Vue-mmPlayer](https://github.com/Sun1090/Vue-mmPlayer) | Fork | 音乐播放器实现参考 | Vue2 |
 | [aurora-public](https://github.com/Sun1090/aurora-public) | Fork | 全栈博客系统参考 | Vue, Spring Boot |
 | [ios_rule_script](https://github.com/Sun1090/ios_rule_script) | Fork | 分流 / 复写 / 脚本规则学习 | JavaScript, Python |
@@ -141,8 +142,8 @@
 
 ## 🤝 Community Contributions
 
-- ✅ **9 个 PR**：其中 **7 个已合并**（3 个上游开源 + 4 个自有仓库；其中 4 个 PR 位于私有仓库 labor-dispatch-admin），另有 2 个未合并。
-- 🐞 在开源项目里提交过 **69 个 Issue**：其中 **50 个已关闭 / 19 个仍开放**。
+- ✅ **3 个上游开源 PR 已合并**：antdv-pro ×2、stepin-template-js ×1；自有仓库保持日常 PR 传输（labor-dispatch-admin 累计合入 40+ PR）。
+- 🐞 在开源项目里提交过 **69 个 Issue**：其中 **51 个已关闭 / 18 个仍开放**。
 
 ### Merged Pull Requests
 
