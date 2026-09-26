@@ -40,7 +40,7 @@
 |---|---|---|
 | Trade Buty | 🚧 Active | 免费中立的交易教育平台，课程 + 真实行情练习 |
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
-| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.21.4），SharedWorker / Dedicated / 主线程降级 |
+| cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.21.42），SharedWorker / Dedicated / 主线程降级 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
 | agents-template | 🧪 Experimenting | AI agent 工程化规范模板（frontend / backend / fullstack 三套） |
 | labor-dispatch-admin | 🛣 Roadmap v4 | Nuxt4 外包人事管理系统 v1.1.1，审批链引擎 + v4 hardening 路线图推进 |
@@ -68,8 +68,8 @@
 > 免 API Key 的开源实时 K 线图表，币安公开数据驱动。
 
 - 🎯 自研交互与渲染适配层的图表内核：回放 / 盘口 / 画线 / 指标各自是纯逻辑引擎，与渲染解耦、可单测。
-- 🕯️ 蜡烛 / 折线 / 面积图，14 档周期（1s–1M）；**49 种画线工具**（趋势线 / 通道 / 斐波那契 / 江恩 / 楔形 / R:R / 文本标注等）+ 图层管理 + 模板保存/应用与社区导入导出。
-- 📈 **26 个指标引擎**（BOLL / Ichimoku / MACD / KDJ / RSI / SAR / Supertrend / VWAP 等），参数可调 + 趋势/波动率智能推荐。
+- 🕯️ 蜡烛 / 折线 / 面积图，14 档周期（1s–1M）；多种画线工具（趋势线 / 通道 / 斐波那契 / 江恩 / 楔形 / R:R / 文本标注等）+ 图层管理 + 模板保存/应用与社区导入导出。
+- 📈 **29 个指标引擎**（BOLL / Ichimoku / MACD / KDJ / RSI / SAR / Supertrend / VWAP 等），参数可调 + 趋势/波动率智能推荐。
 - 🧾 orderbook 聚合 + 深度曲线 + 成交量分布独立计算；1/2/4 多图同屏。
 - ⏪ 历史回放是纯状态机（cursor 推进 / 跳转 / 到顶暂停，1x–50x）；模拟仓位盈亏、价格提醒（含 ATR 波动率自适应）、订单逻辑各自独立。
 - 🌐 五语 i18n（中 / 英 / 日 / 韩 / 西）+ PWA 可安装离线；深链分享、图表快照画廊、应用内文档索引。
@@ -85,7 +85,7 @@
 - 🧩 同源标签页通过 BroadcastChannel 组成逻辑 Worker 集群；sticky Topic 所有者 + 订阅复用 + 新 Topic 负载分配 + 失败迁移，新进 Topic 自动落到负载最低的 Worker。
 - 📡 可选 Centrifuge 传输（`cross-tab-worker-databus/centrifuge`）+ 零依赖原生 WebSocket 传输（`createWebSocketDataBus`）；传输支持 `publishBatch` 批量帧，单条 `publish` 自动兜底。
 - 🪝 React/Vue 3 适配器新增 `useCrossTabHealth` 健康轮询；Transferable ArrayBuffer、消息回放留存、通配符订阅、可观测追踪快照。无 BroadcastChannel 时可选 `storage-event` 信道降级（opt-in）。
-- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.21.4**（含热路径性能门禁 + Worker backend 能力嗅探）。
+- ⚙️ **TypeScript · Web Worker · SharedWorker · BroadcastChannel · Centrifuge**；零运行时核心依赖（Centrifuge 传输仅 peer），已发布 **npm v0.21.42**（含热路径性能门禁 + Worker backend 能力嗅探）。
 
 ### 4. [IndieStack](https://github.com/Sun1090/IndieStack)
 
@@ -142,8 +142,8 @@
 
 ## 🤝 Community Contributions
 
-- ✅ **3 个上游开源 PR 已合并**：antdv-pro ×2、stepin-template-js ×1；自有仓库保持日常 PR 传输（labor-dispatch-admin 累计合入 40+ PR）。
-- 🐞 在开源项目里提交过 **69 个 Issue**：其中 **51 个已关闭 / 18 个仍开放**。
+- ✅ **3 个上游开源 PR 已合并**：antdv-pro ×2、stepin-template-js ×1；自有仓库保持日常 PR 传输（labor-dispatch-admin 累计合入 60+ PR）。
+- 🐞 在其它开源项目里提交过 **70 个 Issue**：其中 **52 个已关闭 / 18 个仍开放**。
 
 ### Merged Pull Requests
 
@@ -178,7 +178,7 @@
 | [soybean-admin-element-plus](https://github.com/soybeanjs/soybean-admin-element-plus) | 29 | 后台路由、菜单、标签页、主题与交互细节 |
 | [UHDadmin-feedback](https://github.com/fxxkrlab/UHDadmin-feedback) | 26 | 权限、状态刷新、主题一致性、空态与交互反馈 |
 | [stepin-template](https://github.com/stepui/stepin-template) | 8 | 布局、路由配置、图标、导航模式 |
-| 其它开源项目 | 6 | Ant Design Vue、Hackintosh、pnpm 等使用反馈 |
+| 其它开源项目 | 7 | Hackintosh、misakaX、pnpm、cc-switch、FreeDomain 等使用反馈 |
 
 ---
 
