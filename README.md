@@ -11,6 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/Sun1090?tab=repositories">Repositories</a> ·
+  <a href="https://resume-tau-orpin.vercel.app">Resume</a> ·
   <a href="https://trade-buty.vercel.app">Trade Buty</a> ·
   <a href="https://kline-buty.vercel.app">Kline Buty</a> ·
   <a href="https://github.com/Sun1090/IndieStack">IndieStack</a>
@@ -42,6 +43,8 @@
 | Kline Buty | 🚧 Active | 实时 K 线图表、技术指标、画线工具与历史回放 |
 | cross-tab-worker-databus | 📦 Published | 跨标签页 Worker 集群数据总线（npm v0.21.42），SharedWorker / Dedicated / 主线程降级 |
 | IndieStack | 🧩 Building | 独立开发者的生产级 Next.js / Supabase 启动模板 |
+| agentdeck 🔒 | 🛠️ Private | 手机远程查看与操控本机 Codex / OpenCode 会话 |
+| notion-kb 🔒 | 🗂️ Private | 项目归档、前端知识与面试题同步到 Notion |
 | agents-template | 🧪 Experimenting | AI agent 工程化规范模板（frontend / backend / fullstack 三套） |
 | labor-dispatch-admin | 🛣 Roadmap v4 | Nuxt4 外包人事管理系统 v1.1.1，审批链引擎 + v4 hardening 路线图推进 |
 | Frontend Archive | 🗂️ Maintained | 整理 Vue / React / 后台模板 / 可视化练习项目 |
@@ -98,7 +101,23 @@
 - 🛡️ **Sentry + Appark APM**（无厂商 SDK、旁路关闭）；安全 Header、限流、邮件通道完善（类型折叠 / 失败重试 / digest 时区错峰）。
 - ⚙️ **Next.js 16 App Router · RSC + Server Actions · shadcn/ui · Supabase · Tailwind v4 原生主题**；Vitest + Playwright E2E + CI；TanStack Query 缓存档位化（live/standard/admin）；**单元/组件测试门禁 + 覆盖率阈值化**；内联 `/docs` + 独立 VitePress 文档站。
 
-### 5. labor-dispatch-admin 🔒 <sub>私有项目 · Client Work</sub>
+### 5. agentdeck 🔒 <sub>私有项目</sub>
+
+> 在手机上远程查看与操控本机的 Codex / OpenCode 编码会话。
+
+- 🎯 统一 Codex 与 OpenCode 的真实 API：Codex 为 JSON-RPC over WebSocket，OpenCode 为 HTTP + SSE。
+- 🔐 主机端 bridge 主动出站，设备配对、流式中继、重连回放和审批代理不需要暴露公网端口。
+- ⚙️ **TypeScript · WebSocket · JSON-RPC · React**；项目仓库为私有，不提供公开 GitHub 链接。
+
+### 6. notion-kb 🔒 <sub>私有项目</sub>
+
+> 把项目归档、前端知识与面试题自动同步到 Notion 工作区的个人工具。
+
+- 🎯 以注册表驱动同步流水线，自动抓取各仓库 README、变更记录与进展文档。
+- ✅ 内置引用、依赖、结构与排序校验，推送前执行预检，避免断链与结构漂移。
+- ⚙️ **Node.js · Notion API · Markdown**；项目仓库为私有，不提供公开 GitHub 链接。
+
+### 7. labor-dispatch-admin 🔒 <sub>私有项目 · Client Work</sub>
 
 > 外包公司人事管理系统，基于 Nuxt4 全栈。
 
@@ -120,6 +139,8 @@
 | [trade-buty](https://github.com/Sun1090/trade-buty) | Original | 2026-09 | 免费中立交易教育平台 | Next.js, React, TypeScript |
 | [kline-buty](https://github.com/Sun1090/kline-buty) | Original | 2026-09 | 自研交互内核的 K 线图表，画线/指标/回放/盘口各自独立引擎 | React, TypeScript, lightweight-charts |
 | [cross-tab-worker-databus](https://github.com/Sun1090/cross-tab-worker-databus) | Original | 2026-09 | 跨标签页 Worker 集群数据总线，SharedWorker→Dedicated→主线程降级，支持 Centrifuge | TypeScript, Web Worker, SharedWorker |
+| agentdeck 🔒 | Original（私有） | 2026-10 | 手机远程查看与操控本机 Codex / OpenCode 会话 | TypeScript, WebSocket, JSON-RPC |
+| notion-kb 🔒 | Original（私有） | 2026-10 | 项目归档、前端知识与面试题同步到 Notion | Node.js, Notion API, Markdown |
 | [nuxt-admin-template](https://github.com/Sun1090/nuxt-admin-template) | Original | 2026-09 | Nuxt + Drizzle + shadcn-vue 可复用后台模板 | Vue, TypeScript, Nuxt |
 | [agents-template](https://github.com/Sun1090/agents-template) | Original | 2026-09 | AI agent 工程化规范模板（frontend / backend / fullstack） | Markdown, AI Agents |
 | [danmu_api](https://github.com/Sun1090/danmu_api) | Original | 2025-09 | 弹幕相关 API 服务 | JavaScript, Vercel |
@@ -186,6 +207,7 @@
 
 | 项目 | 类型 | 在线入口 | 说明 |
 |---|---|---|---|
+| [Resume](https://resume-tau-orpin.vercel.app) | Portfolio | Open Site | 双语个人主页、项目详情与 PDF 导出 |
 | [Trade Buty](https://trade-buty.vercel.app) | Web App | Open App | 免费交易教育平台，含课程与练习 |
 | [Kline Buty](https://kline-buty.vercel.app) | Web App | Open App | 实时 K 线图表与历史回放 |
 | [IndieStack](https://indie-stack-theta.vercel.app) | Template Demo | Open Demo | 独立开发启动模板演示 |
